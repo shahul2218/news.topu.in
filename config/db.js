@@ -1,10 +1,10 @@
-const dotenv = require("dotenv").config({ debug: true });
+// const dotenv = require("dotenv").config({ debug: true });
 const mysql = require("mysql");
 const pool = mysql.createPool({
-  host: process.env.HOST_ID,
-  user: process.env.USER_ID,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  host: "148.72.232.172",
+  user: "Chusaadb",
+  password: "Mahibaby@123",
+  database: "Chusaa",
 });
 
 pool.getConnection(function (err) {
@@ -14,20 +14,20 @@ pool.getConnection(function (err) {
   console.log("connected to db...");
 });
 
-// const executeQuery = (query, arraParams) => {
-//   return new Promise((resolve, reject) => {
-//     try {
-//       pool.query(query,arraParams(err,data)=>{
-//         if (err) {
-//           console.log("error");
-//           reject(err);
-//         }
-//         resolve(data);
-//       })
-//     } catch (error) {
-//       reject(error);
-//     }
-//   })
-// };
+const executeQuery = (query, arraParms) => {
+  return new Promise((resolve, reject) => {
+    try {
+      pool.query(query, arraParms, (err, data) => {
+        if (err) {
+          console.log("error");
+          reject(err);
+        }
+        resolve(data);
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 
-module.exports = pool;
+module.exports = { executeQuery };

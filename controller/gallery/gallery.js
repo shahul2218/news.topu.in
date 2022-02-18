@@ -1,7 +1,11 @@
-import pool from "../../config/db";
+import { executeQuery } from "../../config/db";
 const getAllImages = async (req, res) => {
-  const galleryData = await executeQuery("select * from images", []);
-  res.send(galleryData);
+  try {
+    const galleryData = await executeQuery(`select * from gallery`, []);
+    res.send(galleryData);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
 };
 
 export { getAllImages };

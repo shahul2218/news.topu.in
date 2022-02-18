@@ -1,11 +1,7 @@
-import SingleImage from "../../components/SingleImage";
+import React from "react";
 
 const Gallery = () => {
-  return (
-    <section className="grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 px-2">
-      <SingleImage />
-    </section>
-  );
+  return <div>Gallery</div>;
 };
 
 export default Gallery;

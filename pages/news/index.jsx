@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const getStaticProps = async () => {
-  const res = await fetch(`http://localhost:3000/api/news`);
+  const res = await fetch(`https://news-topu.netlify.app/api/news`);
   const data = await res.json();
   return {
     props: { data },

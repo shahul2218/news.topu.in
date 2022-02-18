@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:3000/api/news`);
+  const res = await fetch(`https://news-topu.netlify.app/api/news`);
   const data = await res.json();
   const paths = data.map((data) => {
     return {
@@ -16,7 +16,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (content) => {
   const id = content.params.Id;
-  const res = await fetch(`http://localhost:3000/api/news/${id}`);
+  const res = await fetch(`https://news-topu.netlify.app/api/news/${id}`);
   const data = await res.json();
   return {
     props: { data },
